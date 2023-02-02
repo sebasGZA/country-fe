@@ -1,0 +1,26 @@
+<div class="row p-1">
+  <div class="col-md-6 col-sm-6 col-xs-6" *ngIf="currentRoute == 'name'">
+    <input
+      class="form-control"
+      placeholder="Enter a name"
+      (change)="onChange($event)"
+      [value]="value"
+    />
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6" *ngIf="currentRoute == 'region'">
+    <select class="form-select" (change)="onChange($event)">
+      <option value="" selected>Select a region</option>
+      <option value="Americas">Americas</option>
+      <option value="Europe">Europe</option>
+      <option value="Asia">Asia</option>
+      <option value="Africa">Africa</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <button class="btn btn-primary" (click)="onClick()">Search</button>
+  </div>
+</div>
+<div class="row" *ngIf="countries">
+  <app-list [countries]="countries"></app-list>
+</div>
